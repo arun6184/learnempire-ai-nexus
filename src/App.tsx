@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,37 +15,40 @@ import MainLayout from "./components/layout/MainLayout";
 // Add additional routes based on project needs
 import AIChatbot from "./components/AIChatbot";
 
+// Create a new QueryClient instance
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/student-dashboard" element={
-            <MainLayout>
-              <StudentDashboard />
-            </MainLayout>
-          } />
-          <Route path="/staff-dashboard" element={
-            <MainLayout>
-              <StaffDashboard />
-            </MainLayout>
-          } />
-          <Route path="/admin-dashboard" element={
-            <MainLayout>
-              <AdminDashboard />
-            </MainLayout>
-          } />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-      <AIChatbot />
-    </TooltipProvider>
-  </QueryClientProvider>
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/student-dashboard" element={
+              <MainLayout>
+                <StudentDashboard />
+              </MainLayout>
+            } />
+            <Route path="/staff-dashboard" element={
+              <MainLayout>
+                <StaffDashboard />
+              </MainLayout>
+            } />
+            <Route path="/admin-dashboard" element={
+              <MainLayout>
+                <AdminDashboard />
+              </MainLayout>
+            } />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+        <AIChatbot />
+      </TooltipProvider>
+    </QueryClientProvider>
+  </React.StrictMode>
 );
 
 export default App;
