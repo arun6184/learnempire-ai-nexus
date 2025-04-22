@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom colors based on the provided palette
+				royal: '#0052CC',
+				cyan: '#36CFC9',
+				actionRed: '#F5222D',
+				gold: '#FAAD14',
+				lightBg: '#F5F7FA',
+				darkBg: '#0A0A0A',
+			},
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+				nunito: ['Nunito Sans', 'sans-serif'],
+				poppins: ['Poppins', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
