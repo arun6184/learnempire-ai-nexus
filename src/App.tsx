@@ -9,6 +9,10 @@ import StudentDashboard from "./pages/StudentDashboard";
 import StaffDashboard from "./pages/StaffDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
+import MainLayout from "./components/layout/MainLayout";
+
+// Add additional routes based on project needs
+import AIChatbot from "./components/AIChatbot";
 
 const queryClient = new QueryClient();
 
@@ -20,12 +24,25 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/student-dashboard" element={<StudentDashboard />} />
-          <Route path="/staff-dashboard" element={<StaffDashboard />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/student-dashboard" element={
+            <MainLayout>
+              <StudentDashboard />
+            </MainLayout>
+          } />
+          <Route path="/staff-dashboard" element={
+            <MainLayout>
+              <StaffDashboard />
+            </MainLayout>
+          } />
+          <Route path="/admin-dashboard" element={
+            <MainLayout>
+              <AdminDashboard />
+            </MainLayout>
+          } />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <AIChatbot />
     </TooltipProvider>
   </QueryClientProvider>
 );

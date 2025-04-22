@@ -54,16 +54,23 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col bg-lightBg dark:bg-darkBg">
       {/* Hero Section */}
-      <div className="hero-gradient text-white py-20 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold font-poppins mb-4">Welcome to LearnEmpire AI</h1>
+      <div className="bg-gradient-to-r from-rathinam-blue via-rathinam-orange to-rathinam-green text-white py-20 px-4 text-center">
+        <div className="flex justify-center mb-6">
+          <img 
+            src="/lovable-uploads/483d9d00-9bb4-4481-a939-859efdbb48da.png" 
+            alt="Rathinam StudyPal Logo" 
+            className="h-16 w-auto animate-float"
+          />
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold font-poppins mb-4">Welcome to Rathinam StudyPal</h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
-          An intelligent learning platform powered by AI to enhance education for students, staff, and administrators.
+          An intelligent learning platform powered by AI to enhance commerce education for students and staff.
         </p>
       </div>
       
       {/* Login Section */}
       <div className="flex-grow flex items-center justify-center p-4 -mt-10">
-        <Card className="w-full max-w-md glass-card">
+        <Card className="w-full max-w-md backdrop-blur-xl bg-white/90 dark:bg-gray-800/90 border-0 shadow-xl">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold text-center">Sign in</CardTitle>
             <CardDescription className="text-center">
@@ -73,24 +80,36 @@ const Login = () => {
           <CardContent>
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div 
-                className={`role-card flex flex-col items-center justify-center cursor-pointer ${selectedRole === 'student' ? 'role-card-active' : ''}`}
+                className={`flex flex-col items-center justify-center p-4 cursor-pointer rounded-lg border transition-all ${
+                  selectedRole === 'student' 
+                    ? 'border-rathinam-blue bg-rathinam-blue/10' 
+                    : 'border-gray-200 hover:border-rathinam-blue/50 hover:bg-gray-50'
+                }`}
                 onClick={() => handleRoleSelect('student')}
               >
-                <GraduationCap className="h-8 w-8 mb-2 text-royal" />
+                <GraduationCap className="h-8 w-8 mb-2 text-rathinam-blue" />
                 <span className="text-sm font-medium">Student</span>
               </div>
               <div 
-                className={`role-card flex flex-col items-center justify-center cursor-pointer ${selectedRole === 'staff' ? 'role-card-active' : ''}`}
+                className={`flex flex-col items-center justify-center p-4 cursor-pointer rounded-lg border transition-all ${
+                  selectedRole === 'staff' 
+                    ? 'border-rathinam-orange bg-rathinam-orange/10' 
+                    : 'border-gray-200 hover:border-rathinam-orange/50 hover:bg-gray-50'
+                }`}
                 onClick={() => handleRoleSelect('staff')}
               >
-                <School className="h-8 w-8 mb-2 text-royal" />
+                <School className="h-8 w-8 mb-2 text-rathinam-orange" />
                 <span className="text-sm font-medium">Staff</span>
               </div>
               <div 
-                className={`role-card flex flex-col items-center justify-center cursor-pointer ${selectedRole === 'admin' ? 'role-card-active' : ''}`}
+                className={`flex flex-col items-center justify-center p-4 cursor-pointer rounded-lg border transition-all ${
+                  selectedRole === 'admin' 
+                    ? 'border-rathinam-green bg-rathinam-green/10' 
+                    : 'border-gray-200 hover:border-rathinam-green/50 hover:bg-gray-50'
+                }`}
                 onClick={() => handleRoleSelect('admin')}
               >
-                <User className="h-8 w-8 mb-2 text-royal" />
+                <User className="h-8 w-8 mb-2 text-rathinam-green" />
                 <span className="text-sm font-medium">Admin</span>
               </div>
             </div>
@@ -101,7 +120,7 @@ const Login = () => {
                   <Input 
                     id="email" 
                     type="email" 
-                    placeholder="m.johnson@university.edu"
+                    placeholder="student@rathinam.in"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -116,7 +135,7 @@ const Login = () => {
                   />
                 </div>
               </div>
-              <Button type="submit" className="w-full mt-6 bg-royal hover:bg-royal/90">
+              <Button type="submit" className="w-full mt-6 bg-gradient-to-r from-rathinam-blue to-rathinam-orange hover:opacity-90">
                 Sign In
               </Button>
             </form>
@@ -124,15 +143,15 @@ const Login = () => {
           <CardFooter className="flex justify-center">
             <div className="text-sm text-muted-foreground flex items-center">
               <BookText className="w-4 h-4 mr-1" />
-              Powered by LearnEmpire AI Technology
+              Powered by Rathinam StudyPal AI Technology
             </div>
           </CardFooter>
         </Card>
       </div>
       
-      {/* AI Chatbot Placeholder - This would be implemented with Supabase integration */}
+      {/* AI Chatbot Placeholder - We'll implement this as a component */}
       <div className="fixed bottom-4 right-4">
-        <Button className="rounded-full w-12 h-12 bg-royal hover:bg-royal/90 flex items-center justify-center">
+        <Button className="rounded-full w-12 h-12 bg-rathinam-green hover:bg-rathinam-green/90 flex items-center justify-center shadow-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
